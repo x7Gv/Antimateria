@@ -20,6 +20,13 @@ public class AntimateriaCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+
+        for (Subcommand sub : subcommands) {
+            if (args[0].equalsIgnoreCase(sub.getLabel())) {
+                sub.onCommand(sender, args);
+            }
+        }
+
         return false;
     }
 }
